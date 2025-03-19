@@ -1,0 +1,159 @@
+/* General Styling */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+}
+
+/* Adding a subtle pattern */
+html::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url('/img/cool.jpg') no-repeat center center;
+    background-size: cover;
+    opacity: 0.6;
+    z-index: -1;
+}
+
+/* Main Container */
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    padding-top: 20px;
+}
+
+/* Wrapper for Content */
+.content-wrapper {
+    width: 90%;
+    max-width: 1200px;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Header Section */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.top-bar h1 {
+    font-size: 26px;
+    font-weight: bold;
+    color: #333;
+}
+
+.approved-link {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.approved-link:hover {
+    color: #0056b3;
+}
+
+/* Table Styling */
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+#approvedTable {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.8);
+}
+
+/* Table Header */
+#approvedTable thead {
+    background: linear-gradient(to right, #0057A0, #1D9236);
+}
+
+#approvedTable th {
+    color: white;
+    padding: 16px;
+    text-align: left;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-bottom: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Table Rows */
+#approvedTable td {
+    padding: 14px;
+    color: #333;
+    font-size: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.6);
+}
+
+/* Zebra Striping */
+#approvedTable tr:nth-child(even) td {
+    background: rgba(240, 240, 240, 0.7);
+}
+
+/* Hover Effect */
+#approvedTable tbody tr:hover {
+    background: rgba(0, 87, 160, 0.15);
+    transition: 0.3s ease-in-out;
+}
+
+/* Rounded Table Corners */
+#approvedTable thead tr:first-child th:first-child {
+    border-top-left-radius: 12px;
+}
+
+#approvedTable thead tr:first-child th:last-child {
+    border-top-right-radius: 12px;
+}
+
+#approvedTable tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 12px;
+}
+
+#approvedTable tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 12px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main {
+        padding-top: 10px;
+    }
+
+    .top-bar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .approved-link {
+        margin-top: 10px;
+    }
+
+    #approvedTable th, #approvedTable td {
+        font-size: 14px;
+        padding: 12px;
+    }
+}

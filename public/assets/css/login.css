@@ -1,0 +1,300 @@
+html, body {
+    overflow: hidden; /* Prevent scrolling */
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    background: url('/img/simc.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    position: relative;
+  }
+
+  body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(2px) brightness(0.9); 
+    -webkit-backdrop-filter: blur(20px) brightness(0.6);
+    background: rgba(87, 86, 86, 0.6); 
+    z-index: 0;
+  }
+
+  /* Login container that holds the card */
+  .login-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    /* Start invisible */
+    opacity: 0;
+    transition: opacity 1s ease-out;
+  }
+  /* When the 'animate' class is added, fade in */
+  .login-container.animate {
+    opacity: 1;
+  }
+
+  /* The login card itself */
+  .login-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border-radius: 15px;
+    padding: 30px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+    /* Start off slightly translated and invisible */
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  /* Trigger card animation */
+  .login-card.animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Animate children elements in sequence */
+  .login-card .animated-child {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    /* You can later use transition-delay for a sequential effect */
+  }
+  .login-card.animate .animated-child {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Logo styling */
+  .logo img {
+    max-height: 50px;
+    margin-bottom: 10px;
+  }
+  .logo span {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  /* Heading and text */
+  .login-card h5 {
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #fff;
+    font-size: 1.5rem;
+  }
+  .login-card p {
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  /* Form elements */
+  .form-control {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    border-radius: 8px;
+    padding: 10px;
+    outline: none;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  .form-control:focus {
+    background: rgba(255, 255, 255, 0.3);
+    border: 1px solid #fff;
+    box-shadow: none;
+  }
+
+  /* Button with a subtle hover motion */
+  .btn-primary {
+    background-color: #4a90e2;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-weight: 600;
+    color: #fff;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  .btn-primary:hover {
+    background-color: #357ABD;
+    transform: translateY(-3px) scale(1.02);
+  }
+
+  /* Alerts */
+  .alert {
+    background: rgba(255, 0, 0, 0.2);
+    border: 1px solid rgba(255, 0, 0, 0.4);
+    color: #fff;
+    text-align: left;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+  }/* Spiral Background */
+  .spiral-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.5;
+    background: radial-gradient(circle, rgba(173, 216, 230, 0.2) 10%, transparent 70%);
+    background-size: 200% 200%;
+    animation: moveSpiral 10s linear infinite;
+}
+
+/* Animation for subtle movement */
+/* Keyframes for Smooth Auto Movement */
+@keyframes moveSpiral {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+    50% {
+        transform: rotate(180deg) scale(1.2);
+    }
+    100% {
+        transform: rotate(360deg) scale(1);
+    }
+}
+/* General Alert Styling */
+.alert {
+  padding: 12px 16px;
+  margin-top: 10px;
+  border-radius: 12px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 14px;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out, backdrop-filter 0.6s ease-out;
+  backdrop-filter: blur(10px);
+  width: 90%;
+  max-width: 400px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) translateY(-10px);
+  z-index: 9999;
+}
+
+.alert.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  backdrop-filter: blur(20px);
+}
+
+.alert-success {
+  background: rgba(29, 146, 54, 0.8); /* Glass green */
+  color: white;
+  box-shadow: 0px 6px 20px rgba(29, 146, 54, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.alert-danger {
+  background: rgba(224, 48, 30, 0.8); /* Glass red */
+  color: white;
+  box-shadow: 0px 6px 20px rgba(224, 48, 30, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.alert-info {
+  background: rgba(0, 87, 160, 0.8); /* Glass blue */
+  color: white;
+  box-shadow: 0px 6px 20px rgba(0, 87, 160, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Fade-in effect */
+.fade-message {
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: fadeIn 0.5s ease-in forwards;
+}
+
+/* Fade-out effect */
+.fade-out {
+  animation: fadeOut 0.5s ease-out forwards;
+}
+
+/* Fade-in keyframes */
+@keyframes fadeIn {
+  0% {
+      opacity: 0;
+      transform: translateY(-10px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Fade-out keyframes */
+@keyframes fadeOut {
+  0% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+  100% {
+      opacity: 0;
+      transform: translateY(-10px);
+  }
+}
+
+
+/* 
+wave */
+.ocean { 
+  height: 5%;
+  width:100%;
+  position:absolute;
+  bottom:0;
+  left:0;
+  background: #015871;
+}
+
+.wave {
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/85486/wave.svg) repeat-x; 
+  position: absolute;
+  top: -198px;
+  width: 6400px;
+  height: 198px;
+  animation: wave 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) infinite;
+  transform: translate3d(0, 0, 0);
+}
+
+.wave:nth-of-type(2) {
+  top: -175px;
+  animation: wave 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) -.125s infinite, swell 7s ease -1.25s infinite;
+  opacity: 1;
+}
+
+@keyframes wave {
+  0% {
+    margin-left: 0;
+  }
+  100% {
+    margin-left: -1600px;
+  }
+}
+
+@keyframes swell {
+  0%, 100% {
+    transform: translate3d(0,-25px,0);
+  }
+  50% {
+    transform: translate3d(0,5px,0);
+  }
+}

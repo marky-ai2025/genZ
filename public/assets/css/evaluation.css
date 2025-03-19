@@ -1,0 +1,160 @@
+body {
+    background: url('../img/simc.jpg') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(36, 34, 34, 0.3); /* Light grey with transparency */
+    backdrop-filter: blur(5px); /* Apply blur */
+    z-index: -1;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Style the form card */
+.glass-card {
+    width: 80%;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure headers are visible */
+h3 {
+    text-align: center;
+    color: #0057A0;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Improve input alignment */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    background: rgba(146, 136, 136, 0.8);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+th {
+    background: #1D9236;
+    color: white;
+    padding: 10px;
+}
+
+td {
+    text-align: center;
+    padding: 10px;
+}.header-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    background:     white;
+    border-bottom: 2px solid #1D9236;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    max-width: 1200px;
+}
+
+.header-logo {
+    width: 100px;
+    height: auto;
+}
+
+.header-text {
+    flex-grow: 1;
+    text-align: center;
+}
+input[type="checkbox"]:checked::after {
+    content: "✔";
+    font-size: 16px;
+    display: block;
+    text-align: center;
+}
+
+/* Glassmorphism Effect */
+.glass-card {
+    background: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
+    backdrop-filter: blur(10px); /* Apple-style blur */
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 15px; /* Smooth rounded corners */
+    padding: 30px;
+    width: 75%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Input Fields */
+.glass-card input, 
+.glass-card textarea {
+    background: rgba(83, 79, 79, 0.2); /* Semi-transparent fields */
+    border: none;
+    padding: 10px;
+    color: #2d2c2c; /* White text */
+    border-radius: 5px;
+    width: 100%;
+}
+
+.glass-card input::placeholder,
+.glass-card textarea::placeholder {
+    color: rgba(22, 21, 21, 0.6); /* Light placeholder text */
+}
+
+/* Buttons */
+.glass-card button {
+    background: rgba(0, 200, 0, 0.8); /* Vibrant green */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 16px;
+    transition: 0.3s ease-in-out;
+}
+
+.glass-card button:hover {
+    background: rgba(0, 180, 0, 1);
+    transform: scale(1.05);
+}
+
+/* Centering the Form */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('your-background-image.jpg') no-repeat center center;
+    background-size: cover; /* Make it responsive */
+}
+label {
+    color: #4d4646; /* Dark grey */
+    font-weight: bold;
+}
+
